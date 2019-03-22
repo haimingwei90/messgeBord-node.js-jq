@@ -25,18 +25,18 @@ application
 
 controller
     User
-        data  id loginname password role 
+        data:  id loginname password role date
         createUser
         deleteUser
         updateUser
     Product
-        data  id name  desc  imgurl  price 
+        data:  id name  desc  imgurl  price 
         
         add(pruduct) 
         delete(pruduct)
         change(pruduct)
     Topic 
-        data: title content imgurl id num messages
+        data: title content imgurl id hidden votes              messages date
         publish(topic) 
         delete(topic)
         change(topic)
