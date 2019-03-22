@@ -8,7 +8,7 @@ db.once('open', function () {
      
 });
 const pruductSchema = new Schema({
-    id: String,
+    id:String,
     name: String,
     desc: String,
     price:Number,

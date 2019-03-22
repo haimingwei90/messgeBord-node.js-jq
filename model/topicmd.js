@@ -9,10 +9,10 @@ db.once('open', function () {
 });
 
 const topicSchema = new Schema({
+    id:String,
     title: String,
     content: String,
     imgurl: String,
-    id:String,
     hidden:Boolean,
     votes:Number,
     messages:[],

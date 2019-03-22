@@ -8,11 +8,11 @@ db.once('open', function () {
      
 });
 
-const userSchema = new Schema({
-    id: String,
+const UserSchema = new Schema({
+    id:String,
     loginname: String,
     password: String,
-    role:Number, 
+    role:{type:Number, default:1},
     data: { type: Date, default: Date.now }
 });
-module.exports = userSchema;
+module.exports = UserSchema;
