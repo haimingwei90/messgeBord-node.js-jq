@@ -3,7 +3,7 @@ export default class Uer{
     constructor(props){
         this.props = props;
     }
-    async add(data){
+    async create(data){
         const {loginname,password,role} = data;
         let user =  await new UserSchema({
             id:id,
@@ -11,7 +11,14 @@ export default class Uer{
             password:password,
             role:role,
         })
-        await user.save();
+        await user.save(function(err){
+            if(err){
+                console.log(err);
+                
+            }else{
+                console.log(err);
+            }
+        });
         return {loginname};
     }
     async delete(data){

@@ -13,9 +13,9 @@ const topicSchema = new Schema({
     title: String,
     content: String,
     imgurl: String,
-    hidden:Boolean,
-    votes:Number,
-    messages:[],
+    hidden:{type:Boolean,default:false},
+    votes:{type:Number,default:0},
+    messages:{type:Array,default:[]},
     date: { type: Date, default: Date.now }
 });
 module.exports = topicSchema;

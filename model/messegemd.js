@@ -7,10 +7,10 @@ db.once('open', function () {
      console.log('we are connected!');
      
 });
-const messegeSchema = new Schema({
+const messageSchema = new Schema({
     content: String,
     id: String,
-    toid: String,
+    replyname: String,
    
 });
-module.exports = messegeSchema;
+module.exports = messageSchema;
