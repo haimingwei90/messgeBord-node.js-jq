@@ -24,7 +24,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-
+app.use('/pruduct',function (req,res,next) {
+  res.render('pruduct',{title:"pruduct"});
+  next()
+})
+app.use('/topic',function (req,res,next) {
+  res.render('topic',{title:"topic"});
+  next()
+})
+app.use('/message',function (req,res,next) {
+  res.render('message',{title:"message"});
+  next();
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

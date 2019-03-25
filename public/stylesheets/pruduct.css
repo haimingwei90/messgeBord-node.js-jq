@@ -1,0 +1,10 @@
+.pruduct-box{
+    display: flex;
+}
+.pruduct{
+    margin: 2.5px;
+    padding: 2px;
+    width: 260px;
+    height: 200px;
+    border:1px solid var(--basebackcolor)
+}

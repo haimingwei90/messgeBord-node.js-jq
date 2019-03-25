@@ -3,15 +3,28 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/index.css' />
+    <link rel="stylesheet" href="/stylesheets/nav.css">
+    <link rel="stylesheet" href="/stylesheets/openbox.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
+    <div class="shade">
+
+    </div>
+    <div class="login">
+        <form action="post">
+            <p><label>账号<input type="text"></label></p>
+            <p><label>密码<input type="text"></label></p>
+            <p><button>登录</button></p>
+        </form>     
+    </div>
     <div class="container">
       <div class="navs">
         <nav>
-          <a href="">首页</a>
-          <a href="">产品</a>
-          <a href="">文章</a>
-          <a href="">留言板</a>
+          <a href="/">首页</a>
+          <a href="/pruduct">产品</a>
+          <a href="/topic">文章</a>
+          <a href="/message">留言板</a>
         </nav>
         <button class="registerbutton">注册</button>
         <button class="loginbutton">登录</button>
@@ -62,5 +75,7 @@
        </div> 
         
     </div>
+    <script src="/javascripts/openbox-index.js"></script>
+    <!-- <script src="/javascripts/test.js"></script> -->
   </body>
 </html>
