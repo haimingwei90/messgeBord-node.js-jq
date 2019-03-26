@@ -1,6 +1,10 @@
 ui
     首页 
-        登录  注册  用户信息  注销
+        登录  
+            验证  null 权限验证 验证图片
+        注册 
+            验证密码 null regex   验证图片 
+        用户信息     注销
         产品轮播  
         文章摘要
     产品
@@ -19,7 +23,7 @@ ui
         用户列表  拉黑 
 application
     user    login
-            register
+            /register   user.createUser(id,loginname,                       password)  
     topic  
            ui初始化 create delete update 
     pruduct
