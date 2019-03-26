@@ -18,3 +18,13 @@
     padding: 5px;
     text-align: center;
 }
+.register{
+    box-shadow: 0,3px,4px,#333;
+    position: fixed;
+    background-color: #fff;
+    width: 300px;
+    z-index: 9999;
+    display: none;
+    padding: 5px;
+    text-align: center;
+}
