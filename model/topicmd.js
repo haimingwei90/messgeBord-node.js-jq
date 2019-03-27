@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -8,7 +7,7 @@ db.once('open', function () {
      
 });
 
-const topicSchema = new Schema({
+const topicSchema = mongoose.model('topicSchema',{
     id:String,
     title: String,
     content: String,

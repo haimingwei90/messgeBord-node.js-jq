@@ -1,5 +1,5 @@
-import messageSchema from "../model/messegemd";
-export default class Message{
+const messageSchema = require("../model/messegemd");
+module.exports = class Message{
     constructor(props){
         this.props = props
     }

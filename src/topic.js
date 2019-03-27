@@ -1,5 +1,5 @@
-import topicSchema from "../model/topicmd";
-export default class Topic {
+const topicSchema = require("../model/topicmd");
+module.exports = class Topic {
     constructor(props){
         this.props = props
     }
@@ -26,8 +26,7 @@ export default class Topic {
         const { id } = data;
         await topicSchema.findOneAndRemove({ id: id });
     }
-    async changebody(data) {
-        title content imgurl  hidden votes  messages 
+    async changebody(data) { 
         const { title, content, imgurl } = data;
         await topicSchema.findOneAndUpdate({ id: id },
             { title:title,content:content,imgurl:imgurl});

@@ -1,5 +1,5 @@
-import pruductSchema from "../model/pruductmb";
-export default class Pruduct {
+const  pruductSchema = require ("../model/pruductmb");
+module.exports = class Pruduct {
     constructor(props){
         this.props = props;
     }
