@@ -13,15 +13,15 @@
     </div>
     <div class="login">
         <form id="loginform" action="login" method="post">
-            <p><label>账号<input type="text"></label></p>
-            <p><label>密码<input type="text"></label></p>
+            <p><label>账号<input name='name' type="text"></label></p>
+            <p><label>密码<input name='psw' type="text"></label></p>
             <p><input type="submit" value="登录"></p>
         </form>     
     </div>
     <div class="register">
         <form id='registerform' action="register" method="post">
-            <p><label>账号<input type="text"></label></p>
-            <p><label>密码<input type="text"></label></p>
+            <p><label>账号<input name="name" type="text"></label></p>
+            <p><label>密码<input name='psw' type="text"></label></p>
             <p><label>再次确认<input type="text"></label></p>
             <p><input type="submit" value="注册"></p>
         </form>     
@@ -35,6 +35,7 @@
           <a href="/message">留言板</a>
         </nav>
         <button class="registerbutton">注册</button>
+        <button class='hidenlogin' style="display:none;"><%=user%></button>
         <button class="loginbutton">登录</button>
       </div>
     </div>
@@ -83,6 +84,11 @@
        </div> 
         
     </div>
+
     <script type="module" src="/javascripts/main-index.js"></script>
+    <script>
+          const user = $('.hidenlogin').text();
+          $('.loginbutton').text('您好!'+user);
+    </script>
   </body>
 </html>

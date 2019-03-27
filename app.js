@@ -4,9 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
+const sessionMiddleware = session({
+  store:new FileStore(),
+  secret:'keyboasd cat',
+  cookie:{maxAge:60000}
+})
 var index = require('./routes/index');
 var users = require('./routes/users');
+var pruduct = require('./routes/pruduct');
+var topic = require('./routes/topic');
+var message = require('./routes/message');
 
 var app = express();
 
@@ -16,26 +25,19 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(sessionMiddleware);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/pruduct',function (req,res,next) {
-  res.render('pruduct',{title:"pruduct"});
-  next()
-})
-app.use('/topic',function (req,res,next) {
-  res.render('topic',{title:"topic"});
-  next()
-})
-app.use('/message',function (req,res,next) {
-  res.render('message',{title:"message"});
-  next();
-})
+app.use('/pruduct',pruduct)
+app.use('/topic',topic)
+app.use('/message',message)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
