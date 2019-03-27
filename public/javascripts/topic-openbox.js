@@ -29,13 +29,11 @@ export default function openboxmain() {
             logindom.css('display', 'none');
         }
     }
-    const loginbuttondom = $('.loginbutton');
-    const registerbuttondom = $('.registerbutton');
-    loginbuttondom.click(function () {
-        openbox('login');
+    const publicbuttondom = $('.publicbutton');
+  
+    publicbuttondom.click(function () {
+        openbox('topicbox');
     });
-    registerbuttondom.click(function () {
-        openbox('register');
-    })
+
 }
 

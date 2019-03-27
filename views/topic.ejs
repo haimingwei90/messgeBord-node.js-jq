@@ -8,9 +8,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/nav.css">
     <link rel="stylesheet" href="/stylesheets/topic.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>
+    <div class="shade">
+    
+    </div>
+    <div class="topicbox">
+        <form id="topicform" action="publish" method="post">
+            <p><label>标题<input name='name' type="text"></label></p>
+            <p><label>内容<textarea name='content'></textarea></label></p>
+            <p><input type="submit" value="发布"></p>
+        </form>
+    </div>
     <div class="container">
         <div class="navs">
             <nav>
@@ -20,6 +32,7 @@
                 <a href="/message">留言板</a>
             </nav>
             <button class="registerbutton">注册</button>
+            <button class='hidenlogin' style="display:none;"><%=user%></button>
             <button class="loginbutton">登录</button>
         </div>
         <section>
@@ -31,6 +44,7 @@
                     <button>类别1</button>
                     <button>类别1</button>
                     <button>类别1</button>
+                    <button class="publicbutton">发布文章</button>
                 </div>
                 <ul>
                     <li>
@@ -40,8 +54,8 @@
                                 为何毕业多年后
                                 原本水平差不多的同学都拉开了差距？
                                 大家好！各位都非常年</p>
-                            <p><a href="">author</a>
-                                <a href="">类别</a>
+                            <p><a >author</a>
+                                <a >类别</a>
                                 <a>createTime</a>
                                 <a>阅读数</a>
                                 <a>赞数</a>
@@ -106,6 +120,7 @@
             </div>
         </section>
     </div>
+    <script type="module" src="/javascripts/topic.js"></script>
 </body>
 
 </html>
