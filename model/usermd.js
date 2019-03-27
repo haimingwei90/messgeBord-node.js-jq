@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+mongoose.Promise = global.Promise;
+
 mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -8,7 +9,7 @@ db.once('open', function () {
      
 });
 
-const UserSchema = new Schema({
+const UserSchema = mongoose.model('UserSchema',{
     id:String,
     loginname: String,
     password: String,

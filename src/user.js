@@ -1,37 +1,42 @@
-import {UserSchema} from '../model/usermd';
-export default class Uer{
-    constructor(props){
-        this.props = props;
+const UserSchema = require ('../model/usermd');
+module.exports =class Uer{
+    constructor(){
+        
     }
-    async create(data){
-        const {loginname,password,role} = data;
-        let user =  await new UserSchema({
-            id:id,
-            loginname:loginname,
-            password:password,
-            role:role,
-        })
-        await user.save(function(err){
-            if(err){
-                console.log(err);
-                
-            }else{
-                console.log(err);
-            }
-        });
-        return {loginname};
+    static  async create(data){
+        UserSchema.remove();
+        const {loginname,password,id} = data;
+        const olduser  = await UserSchema.findOne({loginname:loginname});
+        if(olduser){
+            return {message:"该用户已注册"};
+        }else{
+            let user = await new UserSchema({
+                id: id,
+                loginname: loginname,
+                password: password,
+            })
+            await user.save(function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            });
+            console.log(await UserSchema.find());
+
+            return { message: true, id: user.id };
+        }
+        
     }
-    async delete(data){
+    static async delete(data){
         const {id} = data;
         await UserSchema.findOneAndRemove({id:id});
         
     }
-    async updatePassword(data){
+    static async updatePassword(data){
         const {password,id} = data;
         await UserSchema.findOneAndUpdate({id:id},{password:password});
 
     }
-    async  updateRole(data){
+   static async  updateRole(data){
         const {role,id} = data;
         await UserSchema.findOneAndUpdate({id:id},{role:role})
     }

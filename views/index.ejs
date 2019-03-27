@@ -20,8 +20,8 @@
     </div>
     <div class="register">
         <form id='registerform' action="register" method="post">
-            <p><label>账号<input name="name" type="text"></label></p>
-            <p><label>密码<input name='psw' type="text"></label></p>
+            <p><label>账号<input name="loginname" type="text"></label></p>
+            <p><label>密码<input name='password' type="text"></label></p>
             <p><label>再次确认<input type="text"></label></p>
             <p><input type="submit" value="注册"></p>
         </form>     
@@ -87,8 +87,7 @@
 
     <script type="module" src="/javascripts/main-index.js"></script>
     <script>
-          const user = $('.hidenlogin').text();
-          $('.loginbutton').text('您好!'+user);
+          
     </script>
   </body>
 </html>

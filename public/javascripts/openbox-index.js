@@ -1,6 +1,6 @@
 export default function openboxmain() {
     function openbox(openclassname) {
-
+        
         const shadedom = $('.shade');
         const logindom = $('.' + openclassname);
         const bwidth = $(document.body).outerWidth(true);
