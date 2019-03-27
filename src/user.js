@@ -3,6 +3,15 @@ module.exports =class Uer{
     constructor(){
         
     }
+    static async isExist(name,psw){
+        let olduser = await UserSchema.findOne({ loginname: name });
+
+        if(olduser && olduser.password == psw){
+            return true;
+        }else{
+            return false;
+        }
+    }
     static  async create(data){
         UserSchema.remove();
         const {loginname,password,id} = data;
