@@ -17,9 +17,10 @@
     
     </div>
     <div class="topicbox">
-        <form id="topicform" action="publish" method="post">
-            <p><label>标题<input name='name' type="text"></label></p>
-            <p><label>内容<textarea name='content'></textarea></label></p>
+      
+        <form id="topicform" action="topic/publish" method="post">
+            <p><label>标题<input name='title' type="text"></label></p>
+            <p><label>内容<textarea name='content' type='text'></textarea></label></p>
             <p><input type="submit" value="发布"></p>
         </form>
     </div>
@@ -43,10 +44,10 @@
                     <button>类别1</button>
                     <button>类别1</button>
                     <button>类别1</button>
-                    <button>类别1</button>
+                    <button class="findtopicbt">搜索</button>
                     <button class="publicbutton">发布文章</button>
                 </div>
-                <ul>
+                <ul >
                     <li>
                         <div class="topic">
                             <p>张一鸣演讲整理：</p>

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
+const uuid = require('uuid').v1;
 mongoose.connect('mongodb://localhost/test');
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
@@ -8,10 +10,10 @@ db.once('open', function () {
 });
 
 const topicSchema = mongoose.model('topicSchema',{
-    id:String,
+    id:{type:String,default:uuid()},
     title: String,
     content: String,
-    imgurl: String,
+    imgurl: {type:String,default:[]},
     hidden:{type:Boolean,default:false},
     votes:{type:Number,default:0},
     messages:{type:Array,default:[]},
