@@ -9,12 +9,7 @@ export function publish(){
     },)
 }
 export function gettopicList(){
-        console.log("gettopiclist ajax");
-        
-        $(".topic").load("topic/topiclist", function (responseTxt, statusTxt, xhr) {
+        $('.topics').load("topic/topiclist", function (responseTxt) {
             let rz = JSON.parse(JSON.stringify(responseTxt));
-            console.log(rz);
-            
         });
-
 }

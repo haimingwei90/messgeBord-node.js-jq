@@ -1,21 +1,31 @@
 const topicSchema = require("../model/topicmd");
 module.exports = class Topic {
-    constructor(props){
+    constructor(props) {
         this.props = props
     }
-    static async getTopic(){
-        console.log("gettopic Topic类");
-        
-        let topics =  await topicSchema.find();
-        return topics; 
+    static async getTopic() {
+        let topics = await topicSchema.find();
+        let rz = topics.map(item => {
+            let arr =  {
+                id: item.id,
+                title: item.title,
+                content: item.content,
+                hidden: item.hidden,
+                messages: item.messages,
+                votes: item.votes,
+                date: item.date
+            }
+            return arr;
+        })
+        return rz;
     }
-   static async publish(data){
-        let { title,content ,imgurl} = data;
+    static async publish(data) {
+        let { title, content, imgurl } = data;
 
         let topic = await new topicSchema({
-            title:title,
-            content:content,
-            imgurl:imgurl,
+            title: title,
+            content: content,
+            imgurl: imgurl,
         });
         await topic.save(
             function (err) {
@@ -33,21 +43,21 @@ module.exports = class Topic {
         const { id } = data;
         await topicSchema.findOneAndRemove({ id: id });
     }
-    static async changebody(data) { 
+    static async changebody(data) {
         const { title, content, imgurl } = data;
         await topicSchema.findOneAndUpdate({ id: id },
-            { title:title,content:content,imgurl:imgurl});
+            { title: title, content: content, imgurl: imgurl });
 
     }
-    static async changeHidden(data){
-        const {id,hidden} = data;
-        await topicSchema.findOneAndUpdate({id:id},{
-            hidden:hidden        
+    static async changeHidden(data) {
+        const { id, hidden } = data;
+        await topicSchema.findOneAndUpdate({ id: id }, {
+            hidden: hidden
         })
     }
-    static async addVotes(data){
-        const {id} = data;
-        let topic = await topicSchema.find({id:id});
+    static async addVotes(data) {
+        const { id } = data;
+        let topic = await topicSchema.find({ id: id });
         topic.votes++
         await topic.save(
             function (err) {
@@ -58,9 +68,9 @@ module.exports = class Topic {
                     console.log(err);
                 }
             }
-        ); 
+        );
     }
-    static async minusVotes(data){
+    static async minusVotes(data) {
         const id = data;
         let topic = await topicSchema.find({ id: id });
         topic.votes--;
@@ -73,14 +83,14 @@ module.exports = class Topic {
                     console.log(err);
                 }
             }
-        ); 
+        );
     }
-    static async messages(data){
-        const {messages,topicid,replyname} = data;
-        let topic = await topicSchema.find({id:topicid});
+    static async messages(data) {
+        const { messages, topicid, replyname } = data;
+        let topic = await topicSchema.find({ id: topicid });
         topic.messages.push({
-            messages:messages,
-            replyname:replyname
+            messages: messages,
+            replyname: replyname
         })
         await topic.save(
             function (err) {

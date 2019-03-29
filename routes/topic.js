@@ -17,9 +17,24 @@ router.post('/publish',async function(req,res,next){
     res.send({sucess:true});
 });
 router.get('/topiclist',async function(req,res,next){
-    console.log("topiclist routes");
-    
     let topics =  await Topic.getTopic();
-    res.send({topics:topics});
+    let arrstr = ``;
+    topics.forEach(item => {
+        let str = `
+                    <li>
+                    <div class="topic">
+                            <p>${item.title}</p>
+                            <p>${item.content}</p>
+                            <p> 
+                                <a >作者</a>
+                                <a >${item.date}</a>
+                                <a >${item.votes}</a>
+                            </p>
+                        </div>
+                    </li>
+                 `
+        arrstr = arrstr +str;
+    });
+    res.send(arrstr);
 })
 module.exports = router;
