@@ -11,6 +11,7 @@
 
 </head>
 <body>
+    <%include ./sub-pruduct/pruduct-add.ejs%>
     <div class="container">
         <div class="navs">
             <nav>
@@ -27,43 +28,13 @@
             
             <div class="classify-nav">
                 <input type="text"><button>搜索</button>
+                <button class="addpruductbt">添加</button>
             </div>
             <div class="pruduct-box">
-                <div class="pruduct">
-                    <img src="" alt="">
-                    <div class="pruduct-desc">
-                        <p>音响</p>
-                        <p>3d 自动调节系统</p>
-                        <p>价格15</p>
-                    </div>
-                </div>
-                <div class="pruduct">
-                    <img src="" alt="">
-                    <div class="pruduct-desc">
-                        <p>音响</p>
-                        <p>3d 自动调节系统</p>
-                        <p>价格15</p>
-                    </div>
-                </div>
-                <div class="pruduct">
-                    <img src="" alt="">
-                    <div class="pruduct-desc">
-                        <p>音响</p>
-                        <p>3d 自动调节系统</p>
-                        <p>价格15</p>
-                    </div>
-                </div>
-                <div class="pruduct">
-                    <img src="" alt="">
-                    <div class="pruduct-desc">
-                        <p>音响</p>
-                        <p>3d 自动调节系统</p>
-                        <p>价格15</p>
-                    </div>
-                </div>
+                <%include ./sub-pruduct/sub-pruduct.ejs%>
             </div>
         </div>
     </div>
-    <script src="/javascripts/pruduct.js"></script>
+    <script  type="module" src="/javascripts/pruduct.js"></script>
 </body>
 </html>

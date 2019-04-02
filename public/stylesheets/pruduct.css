@@ -8,3 +8,23 @@
     height: 200px;
     border:1px solid var(--basebackcolor)
 }
+.shade{
+    position: absolute;
+    z-index: 9998;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    filter: opacity(80);
+    background-color: #000;
+    display: none;
+}
+.addbox{
+    box-shadow: 0,3px,4px,#333;
+    position: fixed;
+    background-color: #fff;
+    width: 400px;
+    z-index: 9999;
+    display: none;
+    padding: 5px;
+    text-align: center;
+}
