@@ -11,9 +11,16 @@ export function addpruduct() {
         dataType: 'json',
         success: function (data) {
             alert('success');
+            $('.addbox').css({'display':'none'})
+            $('.shade').css({'display':'none'})
         },
         error: function () {
             alert("请求失败")
         }
     })
+}
+export function getpruductList(){
+    $('.pruduct-box').load("pruduct/pruductlist", function (responseTxt) {
+        let rz = JSON.parse(JSON.stringify(responseTxt));
+    });
 }

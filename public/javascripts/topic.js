@@ -8,6 +8,7 @@ $('#topicform').submit(function(event){
     publish();
 })
 $('.findtopicbt').click(function(){
-    gettopicList();
+   
 })
+gettopicList();
 
