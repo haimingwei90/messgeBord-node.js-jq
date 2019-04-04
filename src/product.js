@@ -43,9 +43,21 @@ module.exports = class Pruduct {
         await pruductSchema.findOneAndRemove({ id: id });
     }
     static async change(data){
-       const { name, desc, imgurl, price} = data;
-        await UserSchema.findOneAndUpdate({ id: id },
-             { name:name,imgurl:imgurl,desc:desc,price:price });
+        console.log(data);
+        
+        const { pruductname, desc, imgurl, price,id} = data;
+        if(imgurl){
+            await pruductSchema.findOneAndUpdate(
+                { id: id },
+                { name:pruductname,imgurl:imgurl,desc:desc,price:price }
+            );
+        }else{
+            await pruductSchema.findOneAndUpdate(
+                { id: id },
+                { name:pruductname,desc:desc,price:price }
+            );
+        }
+       
 
     }
 

@@ -10,3 +10,13 @@
         <p><input type="submit" value="确定"></p>
     </form>
 </div>
+<div class="editbox"> 
+    <form id="editpruductform"  enctype="multipart/form-data" action="pruduct/editpruduct" method="post">
+        <input id="activepruductid" name='id' style="display:none;" type="text">
+        <p><label>产品名字<input name='pruductname' type="text"></label></p>
+        <p><label>简介<textarea name='desc' type='text'></textarea></label></p>
+        <p><label>价格<input name='price' type='text'></label></p>
+        <p><label>图片<input name='img' type='file'></label></p>
+        <p><input type="submit" value="确定修改"><input type="reset" value="重置"></p>
+    </form>
+</div>

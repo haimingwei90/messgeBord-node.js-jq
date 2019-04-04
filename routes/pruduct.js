@@ -26,6 +26,17 @@ router.post('/addpruduct',upload.single('img'),async function(req,res,next){
         await Pruduct.create({pruductname,desc,imgurl,price})
         res.send({data:"sucess"})
 })
+router.post('/editpruduct',upload.single('img'),async function(req,res,next){
+    const {pruductname,desc,price,id} = req.body;
+    var imgurl = null;
+    if(req.file){
+        imgurl = 'http://' + req.headers.host + '/pruduct/uploads/' + req.file.filename;
+    }  
+    console.log(pruductname,desc,price,imgurl,id);
+    
+    await Pruduct.change({pruductname,desc,imgurl,price,id})
+    res.send({data:"sucess"})
+})
 
 router.get("/uploads/:imgname",function (req,res) {
     const rs =  fs.createReadStream("uploads/"+req.params.imgname);
@@ -39,6 +50,7 @@ router.get('/pruductlist',async function(req,res,next){
         let str = `
                    
                     <div class="pruduct">
+
                             <div class='pruduct-desc'>
                                 <p><img class='pruduct-img' src='${imgurl}'></img></p>
                                 <p>${item.name}</p>
@@ -46,12 +58,14 @@ router.get('/pruductlist',async function(req,res,next){
                                 <p> 
                                  ${item.price}
                                 </p>
+                                
                             </div>
                            
                             <div class = "pruduct-bt">
-                                    <button>编辑</button>
-                                    <button>删除</button>
+                                    <button  class='pruduct-edit' activeid='${item.id}'>编辑</button>
+                                    <button  class='pruduct-dele' activeid='${item.id}' >删除</button>
                             </div>
+                          
                         </div>
                 
                  `
