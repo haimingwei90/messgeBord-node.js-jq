@@ -32,8 +32,6 @@ router.post('/editpruduct',upload.single('img'),async function(req,res,next){
     if(req.file){
         imgurl = 'http://' + req.headers.host + '/pruduct/uploads/' + req.file.filename;
     }  
-    console.log(pruductname,desc,price,imgurl,id);
-    
     await Pruduct.change({pruductname,desc,imgurl,price,id})
     res.send({data:"sucess"})
 })
