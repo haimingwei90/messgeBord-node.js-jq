@@ -49,3 +49,10 @@ controller
     Message
         props: content id id2
         createMess(userid )
+
+完善：
+    1.验证图片
+    2.权限验证
+    3。注销  /   拉黑
+    4.点赞
+    5.留言
