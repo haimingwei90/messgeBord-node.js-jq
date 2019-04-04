@@ -27,6 +27,24 @@ export function getpruductList(){
         let rz = JSON.parse(JSON.stringify(responseTxt));
     });
 }
+export function delpruduct(id){
+    $.ajax({
+        type:'post',
+        url:'pruduct/delpruduct',
+        data:{id:id},
+        cache:false,
+        dataType:"json",
+        success:function(data){
+            if(data.success){
+                alert("删除成功")
+            }
+               
+        },
+        error:function(){
+            alert('删除失败')
+        }
+    })
+}
 export function editpruduct(){
     var targetUrl = $("#editpruductform").attr("action");
     var data = new FormData($("#editpruductform")[0]);

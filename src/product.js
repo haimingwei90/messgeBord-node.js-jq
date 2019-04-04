@@ -40,11 +40,14 @@ module.exports = class Pruduct {
     }
     static async delete(data){
         const {id} = data;
-        await pruductSchema.findOneAndRemove({ id: id });
+        await pruductSchema.deleteOne({ id: id },function(err, res){
+            if (err) {
+                console.log("Error:" + err);
+            }
+        });
+       
     }
     static async change(data){
-        console.log(data);
-        
         const { pruductname, desc, imgurl, price,id} = data;
         if(imgurl){
             await pruductSchema.findOneAndUpdate(

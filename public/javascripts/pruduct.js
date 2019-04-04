@@ -1,8 +1,12 @@
 import openboxmain from './openbox.js';
-import { addpruduct, getpruductList,editpruduct } from './ajax/pruduct-ajax.js';
+import { addpruduct, getpruductList,editpruduct,delpruduct } from './ajax/pruduct-ajax.js';
 const user = $('.hidenlogin').text();
 $('.loginbutton').text('您好!' + user);
+//获取产品列表
+getpruductList();
+//添加框弹出
 openboxmain('addpruductbt', 'addbox');
+//添加
 $('#addpruductform').submit(function (event) {
     event.preventDefault();
     addpruduct();//ajax
@@ -10,6 +14,13 @@ $('#addpruductform').submit(function (event) {
 $('.pruduct').css({
     'color': 'red'
 })
+//删除
+    $('body').on('click','.pruduct-dele',function(){
+        let id = $(this).attr('activeid');
+        delpruduct(id);
+        getpruductList(); 
+    })
+// 编辑
 $("body").on('click', '.pruduct-edit', function () {
     let id = $(this).attr('activeid');
     $('#activepruductid').val(id);
@@ -50,8 +61,5 @@ $("body").on('click', '.pruduct-edit', function () {
         editpruduct();//ajax
     });
 });
-$('.pruduct-dele').click(function (event) {
 
-})
-getpruductList();
 

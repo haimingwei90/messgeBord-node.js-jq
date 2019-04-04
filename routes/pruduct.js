@@ -35,7 +35,13 @@ router.post('/editpruduct',upload.single('img'),async function(req,res,next){
     await Pruduct.change({pruductname,desc,imgurl,price,id})
     res.send({data:"sucess"})
 })
+router.post('/delpruduct',async function(req,res,next){
+   
+        const id = req.body.id;
+        await Pruduct.delete({id:id}); 
+        res.send({sucess:true})
 
+})
 router.get("/uploads/:imgname",function (req,res) {
     const rs =  fs.createReadStream("uploads/"+req.params.imgname);
     rs.pipe(res);
