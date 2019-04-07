@@ -12,6 +12,17 @@ module.exports =class Uer{
             return false;
         }
     }
+    static async isRigesited(name){
+        let olduser = await UserSchema.findOne({ loginname: name });
+
+        if(olduser && olduser.loginname == name){
+            console.log(olduser.loginname);
+            
+            return true;
+        }else{
+            return false;
+        }
+    }
     static  async create(data){
         UserSchema.remove();
         const {loginname,password,id} = data;

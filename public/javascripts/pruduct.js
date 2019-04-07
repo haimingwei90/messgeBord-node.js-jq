@@ -6,6 +6,8 @@ $('.loginbutton').text('您好!' + user);
 getpruductList();
 //添加框弹出
 openboxmain('addpruductbt', 'addbox');
+openboxmain('loginbutton', 'login');
+openboxmain('registerbutton', 'register');
 //添加
 $('#addpruductform').submit(function (event) {
     event.preventDefault();

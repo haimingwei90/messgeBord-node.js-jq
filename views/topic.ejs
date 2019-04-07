@@ -8,16 +8,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/nav.css">
     <link rel="stylesheet" href="/stylesheets/topic.css">
+    <link rel="stylesheet" href="/stylesheets/openbox.css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
 <body>
-    <div class="shade">
-    
-    </div>
+
     <div class="topicbox">
-      
         <form id="topicform" action="topic/publish" method="post">
             <p><label>标题<input name='title' type="text"></label></p>
             <p><label>内容<textarea name='content' type='text'></textarea></label></p>
@@ -25,17 +23,7 @@
         </form>
     </div>
     <div class="container">
-        <div class="navs">
-            <nav>
-                <a href="/">首页</a>
-                <a href="/pruduct">产品</a>
-                <a href="/topic">文章</a>
-                <a href="/message">留言板</a>
-            </nav>
-            <button class="registerbutton">注册</button>
-            <button class='hidenlogin' style="display:none;"><%=user%></button>
-            <button class="loginbutton">登录</button>
-        </div>
+        <%include ./top-nav.ejs%>
         <section>
             <div class="left">
                 <div class="topic-nav">

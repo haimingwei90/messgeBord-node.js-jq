@@ -1,3 +1,4 @@
+import isExistLoginname from './ajax/val-loginname.js';
 export function checkregister(){
       function checkpassword(str) {
           const re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\w]{3,20}$/
@@ -53,3 +54,8 @@ export function checklogin(){
     }
   })
 } 
+export function checkloginname(){
+  $('#registerform input:eq(0)').on('input',function(){
+    isExistLoginname()
+  })
+}

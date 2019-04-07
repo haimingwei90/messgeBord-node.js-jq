@@ -1,0 +1,30 @@
+<div class="shade">
+
+</div>
+<div class="login">
+    <form id="loginform" action="login" method="post">
+        <p><label>账号<input name='name' type="text"></label></p>
+        <p><label>密码<input name='psw' type="text"></label></p>
+        <p><input type="submit" value="登录"><input type="reset" value="清空"></input></p>
+    </form>     
+</div>
+<div class="register">
+    <form id='registerform' action="register" method="post">
+        <p><label>账号<input name="loginname" type="text"></label></p>
+        <div class="view-info" style="display:none;color: red;"><span>该用户已注册</span></div>
+        <p><label>密码<input name='password' type="text"></label></p>
+        <p><label>再次确认<input type="text"></label></p>
+        <p><input type="submit" value="注册"></p>
+    </form>     
+</div>
+<div class="navs">
+    <nav>
+        <a href="/">首页</a>
+        <a href="/pruduct">产品</a>
+        <a href="/topic">文章</a>
+        <a href="/message">留言板</a>
+    </nav>
+    <button class="registerbutton">注册</button>
+    <button class='hidenlogin' style="display:none;"><%=user%></button>
+    <button class="loginbutton">登录</button>
+</div>

@@ -26,16 +26,12 @@ router.post('/login',async function(req,res,next){
 router.post('/register',async function(req,res,next){
     const {loginname,password} = req.body;
     const id = uuid();   
-    let name = "请登录"
-    let message = await User.create({loginname,password,id})
-    console.log(message);
-    if(message.message == true){
-      req.session.user = loginname;
-     
-      name = loginname;
-    }else{
-      name = "该用户已注册"
-    }
-    res.render('index', { title: '首页', user: name })
-  })
+    await User.create({loginname,password,id})
+    res.send({sucess:ture } )
+})
+router.get('/isLoginname?*',async function(req,res,next){
+    let loginname = req.query.id;
+    let rz = await User.isRigesited(loginname);
+    res.send({success:rz});
+})
 module.exports = router;
